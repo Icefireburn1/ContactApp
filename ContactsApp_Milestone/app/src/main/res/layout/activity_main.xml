@@ -20,23 +20,6 @@
     </ListView>
 
     <Button
-        android:id="@+id/btn_loadfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Load"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/lv_contacts" />
-
-    <Button
-        android:id="@+id/btn_savefile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btn_loadfile"
-        android:text="Save"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="506dp" />
-
-    <Button
         android:id="@+id/btn_personcontact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,8 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Business"
-        app:layout_constraintBottom_toTopOf="@+id/btn_personcontact"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/et_search"

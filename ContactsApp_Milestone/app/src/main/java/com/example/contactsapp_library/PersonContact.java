@@ -14,44 +14,43 @@ import com.fasterxml.jackson.annotation.JsonValue;
  */
 public class PersonContact extends BaseContact {
 
-	private Date dateOfBirth;
+	private String dateOfBirth;
 	private String description;
 	private String hobby;
 	private List<PersonContact> relatives;
 	
-	public PersonContact(int number, String name, String phone, String hobby, List<Photo> photos, Location location, Date dateOfBirth, String description, PersonContact[] relatives) {
-		super(number, name, phone, photos, location);
+	public PersonContact(int number, String name, String phone, String hobby, List<Photo> photos, Location location, String email, String dateOfBirth, String description, List<PersonContact> relatives) {
+		super(number, name, phone, photos, location, email);
 		
 		this.dateOfBirth = dateOfBirth;
 		this.description = description;
 		this.hobby = hobby;
-		this.relatives = new ArrayList<PersonContact>();
+		this.relatives = relatives;
 	}
 	
 	public PersonContact()
 	{
-		super(-1, "Test Name", "3203333333", null, null);
-		
-		this.dateOfBirth = new Date();
-		this.description = "No description set.";
+		super(-1, "", "", new ArrayList<>(), new Location(), "");
+		this.dateOfBirth = "";
+		this.description = "";
 		this.relatives = new ArrayList<PersonContact>();
-		this.hobby = "No hobby";
+		this.hobby = "";
 	}
 	
 	/**
 	 * Set all properties at once
-	 * @param number
-	 * @param name
-	 * @param phone
-	 * @param hobby
-	 * @param photos
-	 * @param location
-	 * @param dateOfBirth
-	 * @param description
-	 * @param relatives
+	 * @param number id number
+	 * @param name of contact
+	 * @param phone number for a phone
+	 * @param hobby hobby for contact
+	 * @param photos list of photos for contact
+	 * @param location birth place of contact
+	 * @param dateOfBirth time of birth for contact
+	 * @param description brief description of contact
+	 * @param relatives list of contacts that are related to contact
 	 */
 	public void setAll(int number, String name, String phone, String hobby, List<Photo> photos, Location location,
-                       Date dateOfBirth, String description, PersonContact[] relatives)
+                       String dateOfBirth, String description, PersonContact[] relatives)
 	{
 		super.setNumber(number);
 		super.setName(name);
@@ -65,11 +64,11 @@ public class PersonContact extends BaseContact {
 		this.hobby = hobby;
 	}
 
-	public Date getDateOfBirth() {
+	public String getDateOfBirth() {
 		return dateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 

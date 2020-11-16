@@ -36,6 +36,7 @@ public class Add_relative_form extends AppCompatActivity {
 
         MyApplication myApp = (MyApplication)this.getApplication();
 
+
         AddressBook addressBook = new AddressBook();
 
         List<BaseContact> bList = new ArrayList<>(myApp.getPersonContact().getRelatives());
@@ -55,12 +56,14 @@ public class Add_relative_form extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PersonContact pc = myApp.getAddressBook().searchForPersonalContactByName(et_addbyname.getText().toString());
+
+                // Check if we found a contact
                 if (pc != null)
                 {
                     addressBook.add(pc);
                     myApp.getPersonContact().getRelatives().add(pc);
                     adapter.notifyDataSetChanged();
-                    Toast.makeText(myApp, "Sucessfully add contact", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(myApp, "Successfully add contact", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

@@ -28,14 +28,16 @@ public abstract class BaseContact {
 	private String phone;
 	private List<Photo> photos;
 	private Location location;
+	private String email;
 	
 	
-	public BaseContact(int number, String name, String phone, List<Photo> photos, Location location) {
+	public BaseContact(int number, String name, String phone, List<Photo> photos, Location location, String email) {
 		this.number = number;
 		this.name = name;
 		this.phone = phone;
 		this.photos = photos;
 		this.location = location;
+		this.email = email;
 	}
 	
 	@Override
@@ -87,5 +89,13 @@ public abstract class BaseContact {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

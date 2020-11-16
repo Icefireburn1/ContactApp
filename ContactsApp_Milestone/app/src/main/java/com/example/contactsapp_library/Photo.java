@@ -1,6 +1,10 @@
 package com.example.contactsapp_library;
 
+import android.app.Activity;
+import android.content.Context;
+
 import java.util.Date;
+
 
 /**
  * This class represents the information that would relate to a photo
@@ -15,7 +19,9 @@ public class Photo {
 
 	public Photo()
 	{
-		this.photoID = -1;
+		Context context = MyApplication.getAppContext();
+		MyApplication myApp = (MyApplication)context;
+		this.photoID = MyApplication.getUniqueID();
 		this.fileName = "No Name";
 		this.description = "Description not yet set.";
 		this.date = new Date();

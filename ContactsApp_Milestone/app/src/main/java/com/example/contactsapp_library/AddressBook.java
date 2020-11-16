@@ -45,7 +45,8 @@ public class AddressBook {
 	 */
 	public void setContacts(List<BaseContact> contacts)
 	{
-		this.contacts = contacts;
+		this.contacts.clear();
+		this.contacts.addAll(contacts);
 	}
 
 	/**
@@ -140,14 +141,16 @@ public class AddressBook {
 		{
 			number = -1;
 		}
+
+		result = result.toLowerCase();
 		
 		// Go through all the contact
 		for (BaseContact baseContact : contacts) {
 			// Get by name
-			if (baseContact.getName().equals(result))
+			if (baseContact.getName().toLowerCase().equals(result))
 				return baseContact;
 			// Get by city
-			if (baseContact.getLocation().getCity().equals(result))
+			if (baseContact.getLocation().getCity().toLowerCase().equals(result))
 				return baseContact;
 			// Get ID
 			if (baseContact.getNumber() == number)
@@ -155,19 +158,21 @@ public class AddressBook {
 			// Get Phone
 			if (baseContact.getPhone().equals(result))
 				return baseContact;
+			if (baseContact.getEmail().toLowerCase().equals(result))
+				return baseContact;
 			// Get Photo Info
 			for (Photo p : baseContact.getPhotos())
 			{
 				if (p.getPhotoID() == number)
 					return baseContact;
 				
-				if (p.getFileName().equals(result))
+				if (p.getFileName().toLowerCase().equals(result))
 					return baseContact;
 					
 				if (p.getDate().toString().contentEquals(result))
 					return baseContact;
 				
-				if (p.getDescription().equals(result))
+				if (p.getDescription().toLowerCase().equals(result))
 					return baseContact;
 			}
 			
@@ -176,13 +181,13 @@ public class AddressBook {
 			if (loc.getLocationID() == number)
 				return baseContact;
 			
-			if (loc.getStreet().equals(result))
+			if (loc.getStreet().toLowerCase().equals(result))
 				return baseContact;
 			
-			if (loc.getCity().equals(result))
+			if (loc.getCity().toLowerCase().equals(result))
 				return baseContact;
 			
-			if (loc.getState().equals(result))
+			if (loc.getState().toLowerCase().equals(result))
 				return baseContact;
 			
 			// Check for PersonContact specific properties
@@ -192,20 +197,20 @@ public class AddressBook {
 				if (person.getDateOfBirth().toString().equals(result))
 					return baseContact;
 				
-				if (person.getDescription().equals(result))
+				if (person.getDescription().toLowerCase().equals(result))
 					return baseContact;
 				
-				if (person.getHobby().equals(result))
+				if (person.getHobby().toLowerCase().equals(result))
 					return baseContact;
 			}
 			
 			if (baseContact instanceof BusinessContact)
 			{
 				BusinessContact business = (BusinessContact)baseContact;
-				if (business.getBusinessHours().equals(result))
+				if (business.getBusinessHours().toLowerCase().equals(result))
 					return baseContact;
 				
-				if (business.getWebsiteURL().equals(result))
+				if (business.getWebsiteURL().toLowerCase().equals(result))
 					return baseContact;
 			}
 			

@@ -1,5 +1,6 @@
 package com.example.contactsapp_library;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,15 +13,15 @@ public class BusinessContact extends BaseContact {
 	private String businessHours;
 	private String websiteURL;
 	
-	public BusinessContact(int number, String name, String phone, List<Photo> photos, Location location, String businessHours, String websiteURL) {
-		super(number, name, phone, photos, location);
+	public BusinessContact(int number, String name, String phone, List<Photo> photos, Location location, String email, String businessHours, String websiteURL) {
+		super(number, name, phone, photos, location, email);
 		
 		this.businessHours = businessHours;
 		this.websiteURL = websiteURL;
 	}
 
 	public BusinessContact() {
-		super(-1,"No Name", "000-000-0000",null,null);
+		super(-1,"", "",new ArrayList<>(),new Location(), "");
 	}
 
 	public String getBusinessHours() {
